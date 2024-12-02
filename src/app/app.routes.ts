@@ -6,6 +6,12 @@ export const routes: Routes = [
     loadComponent: () => import('./dashboard/dashboard.component'),
     children: [
       {
+        path: 'input-output',
+        title: 'Input Output',
+        loadComponent: () =>
+          import('./dashboard/pages/input-output/input-output.component'),
+      },
+      {
         path: 'users',
         title: 'Users',
         loadComponent: () => import('./dashboard/pages/users/users.component'),
