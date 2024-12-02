@@ -28,10 +28,20 @@ export const routes: Routes = [
           import('./dashboard/pages/defer-options/defer-options.component'),
       },
       {
-        path: 'view-transition',
-        title: 'View Transition',
-        loadChildren: () =>
-          import('./dashboard/pages/view-transition/view-transition.component'),
+        path: 'view-transition-1',
+        title: 'View Transition 1',
+        loadComponent: () =>
+          import(
+            './dashboard/pages/view-transition/view-transition-1.component'
+          ),
+      },
+      {
+        path: 'view-transition-2',
+        title: 'View Transition 2',
+        loadComponent: () =>
+          import(
+            './dashboard/pages/view-transition/view-transition-2.component'
+          ),
       },
       {
         path: 'change-detection',

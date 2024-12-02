@@ -1,1 +1,94 @@
-<p>defer-options works!</p>
+<app-title title="Defer Options" withShadow />
+
+<section class="grid grid-cols-1 gap-4">
+  <app-card>
+    @defer (on interaction) {
+    <app-heavy-loaders-fast cssClass="bg-pink-500">
+      <p class="font-bold text-white">Defer on interaction</p>
+    </app-heavy-loaders-fast>
+    } @placeholder {
+    <p
+      class="w-full p-10 h-52 bg-gradient-to-r from-slate-200 to-slate-100 animate-pulse"
+    >
+      Click en el div
+    </p>
+    }
+  </app-card>
+  <app-card>
+    <button
+      #btnInteraction
+      class="px-4 py-2 font-bold text-white bg-blue-500 rounded"
+    >
+      Click me
+    </button>
+    @defer (on interaction(btnInteraction)) {
+    <app-heavy-loaders-fast cssClass="bg-violet-500">
+      <p class="font-bold text-white">Defer on interaction</p>
+    </app-heavy-loaders-fast>
+    } @placeholder {
+    <p
+      class="w-full p-10 h-52 bg-gradient-to-r from-slate-200 to-slate-100 animate-pulse"
+    >
+      Click en el div
+    </p>
+    }
+  </app-card>
+  <app-card>
+    <button
+      #btnInteraction2
+      class="px-4 py-2 font-bold text-white bg-blue-500 rounded"
+    >
+      Hover me
+    </button>
+    @defer (on hover(btnInteraction2)) {
+    <app-heavy-loaders-fast cssClass="bg-blue-500">
+      <p class="font-bold text-white">Defer on hover</p>
+    </app-heavy-loaders-fast>
+    } @placeholder {
+    <p
+      class="w-full p-10 h-52 bg-gradient-to-r from-slate-200 to-slate-100 animate-pulse"
+    >
+      Click en el div
+    </p>
+    }
+  </app-card>
+  <app-card>
+    @defer (on immediate) {
+    <app-heavy-loaders-fast cssClass="bg-green-500">
+      <p class="font-bold text-white">Defer on immediate</p>
+    </app-heavy-loaders-fast>
+    } @placeholder {
+    <p
+      class="w-full p-10 h-52 bg-gradient-to-r from-slate-200 to-slate-100 animate-pulse"
+    >
+      Click en el div
+    </p>
+    }
+  </app-card>
+  <app-card>
+    @defer (on timer(2000)) {
+    <app-heavy-loaders-fast cssClass="bg-red-500">
+      <p class="font-bold text-white">Defer on timer</p>
+    </app-heavy-loaders-fast>
+    } @placeholder {
+    <p
+      class="w-full p-10 h-52 bg-gradient-to-r from-slate-200 to-slate-100 animate-pulse"
+    >
+      2 segundos
+    </p>
+    }
+  </app-card>
+  <app-card>
+    @defer (on hover; on timer(2000)) {
+    <app-heavy-loaders-fast cssClass="bg-black-500">
+      <p class="font-bold text-white">Defer on hover and timer</p>
+    </app-heavy-loaders-fast>
+    } @placeholder {
+    <p
+      class="w-full p-10 h-52 bg-gradient-to-r from-slate-200 to-slate-100 animate-pulse"
+    >
+      2 segundos
+    </p>
+    }
+  </app-card>
+</section>

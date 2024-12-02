@@ -1,1 +1,14 @@
-<p>user works!</p>
+<app-title [title]="titleLabel()" withShadow />
+
+<section class="flex items-center gap-4">
+  @if (user()) {
+  <img
+    [srcset]="user()!.avatar"
+    [alt]="user()!.first_name"
+    class="rounded-full size-14"
+  />
+  <p>{{ user()!.email }}</p>
+  } @else {
+  <p>Loading user...</p>
+  }
+</section>

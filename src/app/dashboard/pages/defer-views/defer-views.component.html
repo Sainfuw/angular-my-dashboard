@@ -1,1 +1,22 @@
-<p>defer-views works!</p>
+<app-title title="Defer Views" withShadow />
+<section class="grid grid-cols-1 gap-4">
+  <app-card>
+    @defer () {
+    <app-heavy-loaders-slow cssClass="bg-blue-500" />
+    } @placeholder {
+    <p
+      class="w-full p-10 h-[600px] bg-gradient-to-r from-slate-200 to-slate-100 animate-pulse"
+    >
+      Loading by default...
+    </p>
+    } @defer (on viewport) {
+    <app-heavy-loaders-slow cssClass="bg-pink-500" />
+    } @placeholder {
+    <p
+      class="w-full p-10 h-[600px] bg-gradient-to-r from-slate-200 to-slate-100 animate-pulse"
+    >
+      Loading on viewport...
+    </p>
+    }
+  </app-card>
+</section>
