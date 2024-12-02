@@ -15,7 +15,6 @@ export default class UserComponent {
   private route = inject(ActivatedRoute)
   private usersService = inject(UsersService)
 
-  // public user = signal<User | undefined>(undefined)
   public user = toSignal(
     this.route.params.pipe(
       switchMap(({ id }) => this.usersService.getUserById(Number(id)))
@@ -29,8 +28,4 @@ export default class UserComponent {
       this.user()!.last_name
     }`
   })
-
-  constructor() {
-    this.route.params.subscribe((params) => {})
-  }
 }
